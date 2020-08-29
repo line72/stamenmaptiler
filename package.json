@@ -1,0 +1,60 @@
+{
+  "name": "@thesystemcollective/tile.thesystem.at",
+  "version": "0.0.1-alpha.0",
+  "author": "Wizards & Witches",
+  "homepage": "https://grundstein.github.io/gms",
+  "license": "AGPL-3.0",
+  "private": true,
+  "description": "NOT YET BENCHMARKED OR IN PRODUCTION! @thesystemcollective/tile.thesystem.at. serves, proxies, caches and reformats tile images for use in leaflet.",
+  "main": "src/index.mjs",
+  "engines": {
+    "node": ">=13.5.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "start": "npm run dev",
+    "test": "t",
+    "format": "f -w",
+    "dev": "src/bin.mjs --dir public"
+  },
+  "bin": {
+    "grundstein-magic-server": "src/bin.mjs",
+    "gms": "src/bin.mjs"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thesystemcollective/tile.thesystem.at.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thesystemcollective/tile.thesystem.at/issues"
+  },
+  "dependencies": {
+    "@grundstein/commons": "github:grundstein/commons",
+    "@grundstein/file-store": "github:grundstein/file-store",
+    "@magic/cli": "0.0.28",
+    "@magic/fs": "0.0.7",
+    "image-type": "4.1.0",
+    "mmmagic": "0.5.3",
+    "optipng-bin": "7.0.0",
+    "tinify": "1.6.0-beta.2"
+  },
+  "devDependencies": {
+    "@magic/format": "0.0.14",
+    "@magic/test": "0.1.53"
+  },
+  "keywords": [
+    "grundstein",
+    "static",
+    "page",
+    "server"
+  ],
+  "contributors": [
+    {
+      "name": "jascha ehrenreich",
+      "github": "jaeh"
+    }
+  ]
+}
