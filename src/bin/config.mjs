@@ -14,4 +14,4 @@ export const url = 'tile.stamen.com/toner'
 
 export const protocol = 'http'
 
-export const imageDir = 'images'
+export const imageDir = 'docs'
