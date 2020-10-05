@@ -1,11 +1,11 @@
 {
-  "name": "@thesystemcollective/tile.thesystem.at",
+  "name": "@thesystemcollective/map.thesystem.at",
   "version": "0.0.1-alpha.0",
   "author": "Wizards & Witches",
   "homepage": "https://grundstein.github.io/gms",
   "license": "AGPL-3.0",
   "private": true,
-  "description": "NOT YET BENCHMARKED OR IN PRODUCTION! @thesystemcollective/tile.thesystem.at. serves, proxies, caches and reformats tile images for use in leaflet.",
+  "description": "NOT YET BENCHMARKED OR IN PRODUCTION! @thesystemcollective/map.thesystem.at. serves, proxies, caches and reformats tile images for use in leaflet.",
   "main": "src/index.mjs",
   "engines": {
     "node": ">=13.5.0"
@@ -15,7 +15,7 @@
     "start": "npm run dev",
     "test": "t",
     "format": "f -w",
-    "dev": "src/bin.mjs --dir public"
+    "dev": "grundstein-server --dir ./docs --port 8002 --cors '*'"
   },
   "bin": {
     "grundstein-magic-server": "src/bin.mjs",
@@ -26,10 +26,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thesystemcollective/tile.thesystem.at.git"
+    "url": "git+https://github.com/thesystemcollective/map.thesystem.at.git"
   },
   "bugs": {
-    "url": "https://github.com/thesystemcollective/tile.thesystem.at/issues"
+    "url": "https://github.com/thesystemcollective/map.thesystem.at/issues"
   },
   "dependencies": {
     "@grundstein/commons": "github:grundstein/commons",
@@ -43,7 +43,8 @@
   },
   "devDependencies": {
     "@magic/format": "0.0.14",
-    "@magic/test": "0.1.53"
+    "@magic/test": "0.1.53",
+    "@grundstein/gss": "github:grundstein/gss"
   },
   "keywords": [
     "grundstein",
