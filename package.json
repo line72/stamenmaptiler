@@ -8,9 +8,10 @@
   "description": "NOT YET BENCHMARKED OR IN PRODUCTION! @thesystemcollective/map.thesystem.at. serves, proxies, caches and reformats tile images for use in leaflet.",
   "main": "src/index.mjs",
   "engines": {
-    "node": ">=13.5.0"
+    "node": ">=14.14.0"
   },
   "engineStrict": true,
+  "type": "module",
   "scripts": {
     "start": "npm run dev",
     "test": "t",
@@ -34,17 +35,17 @@
   "dependencies": {
     "@grundstein/commons": "github:grundstein/commons",
     "@grundstein/file-store": "github:grundstein/file-store",
-    "@magic/cli": "0.0.28",
-    "@magic/fs": "0.0.7",
+    "@magic/cli": "0.0.29",
+    "@magic/fs": "0.0.8",
     "image-type": "4.1.0",
     "mmmagic": "0.5.3",
     "optipng-bin": "7.0.0",
     "tinify": "1.6.0-beta.2"
   },
   "devDependencies": {
-    "@magic/format": "0.0.14",
-    "@magic/test": "0.1.53",
-    "@grundstein/gss": "github:grundstein/gss"
+    "@grundstein/gss": "github:grundstein/gss",
+    "@magic/format": "0.0.17",
+    "@magic/test": "0.1.56"
   },
   "keywords": [
     "grundstein",
