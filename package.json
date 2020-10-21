@@ -31,20 +31,18 @@
   "bugs": {
     "url": "https://github.com/thesystemcollective/map.thesystem.at/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "@grundstein/commons": "github:grundstein/commons",
     "@grundstein/file-store": "github:grundstein/file-store",
+    "@grundstein/gss": "github:grundstein/gss",
     "@magic/cli": "0.0.29",
+    "@magic/format": "0.0.17",
     "@magic/fs": "0.0.8",
+    "@magic/test": "0.1.56",
     "image-type": "4.1.0",
     "mmmagic": "0.5.3",
     "optipng-bin": "7.0.0",
     "tinify": "1.6.0-beta.2"
-  },
-  "devDependencies": {
-    "@grundstein/gss": "github:grundstein/gss",
-    "@magic/format": "0.0.17",
-    "@magic/test": "0.1.56"
   },
   "keywords": [
     "grundstein",
