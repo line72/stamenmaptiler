@@ -36,6 +36,7 @@
     "@grundstein/commons": "github:grundstein/commons",
     "@grundstein/file-store": "github:grundstein/file-store",
     "@grundstein/gss": "github:grundstein/gss",
+    "@grundstein/prepare-static-files": "github:grundstein/prepare-static-files",
     "@magic/cli": "0.0.29",
     "@magic/format": "0.0.17",
     "@magic/fs": "0.0.8",
@@ -56,8 +57,5 @@
       "name": "jascha ehrenreich",
       "github": "jaeh"
     }
-  ],
-  "dependencies": {
-    "@thesystemcollective/prepare-static-files": "github:thesystemcollective/prepare-static-files"
-  }
+  ]
 }
