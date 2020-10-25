@@ -15,7 +15,8 @@
   "scripts": {
     "start": "npm run dev",
     "format": "f -w",
-    "dev": "grundstein-server --dir ./docs --port 8002 --cors '*'"
+    "dev": "grundstein-server --dir ./docs --port 8002 --cors '*'",
+    "build": "prepare-static-files --no-webp --no-optimize-images --dirs docs"
   },
   "bin": {
     "grundstein-magic-server": "src/bin.mjs",
@@ -55,5 +56,8 @@
       "name": "jascha ehrenreich",
       "github": "jaeh"
     }
-  ]
+  ],
+  "dependencies": {
+    "@thesystemcollective/prepare-static-files": "github:thesystemcollective/prepare-static-files"
+  }
 }
