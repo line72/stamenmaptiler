@@ -15,7 +15,7 @@
   "scripts": {
     "start": "npm run dev",
     "format": "f -w",
-    "dev": "grundstein-server --dir ./docs --port 8002 --cors '*'",
+    "dev": "grundstein-server --dir ./docs --port 8003 --cors '*'",
     "build": "prepare-static-files --no-webp --no-optimize-images --dirs docs"
   },
   "bin": {
