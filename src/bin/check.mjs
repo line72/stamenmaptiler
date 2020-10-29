@@ -5,7 +5,7 @@ import mmmagic from 'mmmagic'
 
 import * as config from './config.mjs'
 
-const magic = new mmmagic.Magic();
+const magic = new mmmagic.Magic()
 
 const main = async () => {
   const brokenFiles = []
@@ -13,16 +13,25 @@ const main = async () => {
   for (let i = config.zoom.min; i <= config.zoom.max; i++) {
     const dirs = await fs.getDirectories(`./images/${i}`)
 
-    await Promise.all(dirs.map(async dir => {
-      const files = await fs.getFiles(dir)
+    await Promise.all(
+      dirs.map(async dir => {
+        const files = await fs.getFiles(dir)
 
-      await Promise.all(files.map(file => new Promise(res => magic.detectFile(file, (err, result) => {
-        if (err || !result.includes('PNG')) {
-          brokenFiles.push(file)
-        }
-        res()
-      }))))
-    }))
+        await Promise.all(
+          files.map(
+            file =>
+              new Promise(res =>
+                magic.detectFile(file, (err, result) => {
+                  if (err || !result.includes('PNG')) {
+                    brokenFiles.push(file)
+                  }
+                  res()
+                }),
+              ),
+          ),
+        )
+      }),
+    )
 
     console.log(`checked layer ${i}.`)
   }
