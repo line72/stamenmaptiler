@@ -11,8 +11,6 @@ const main = async () => {
     layers[`${i}`] = await downloadTiles(i)
     console.log(`downloaded zoom layer ${i}`)
   }
-
-  console.log(layers)
 }
 
 main()
