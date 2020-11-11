@@ -2,7 +2,7 @@ import path from 'path'
 
 import fs from '@magic/fs'
 
-import * as config from './config.mjs'
+import * as config from '../config.mjs'
 import { httpRequest } from './httpRequest.mjs'
 
 const degreesToRadians = degrees => (degrees * Math.PI) / 180
@@ -28,10 +28,12 @@ const writeFile = async ({ x, y, zoom, subdomain, bounds }) => {
   const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
   const filePath = path.join(config.imageDir, `${zoom}`, `${x}`, `${y}.png`)
 
+  const b = JSON.stringify(bounds)
+
   const exists = await fs.exists(filePath)
   if (!exists) {
     try {
-      console.log('downloading', `/${zoom}/${x}/${y}.png`)
+      console.log('downloading', `/${zoom}/${x}/${y}.png bounds: ${b}`)
 
       const data = await httpRequest(url)
       const basename = path.dirname(filePath)
@@ -39,7 +41,7 @@ const writeFile = async ({ x, y, zoom, subdomain, bounds }) => {
       await fs.mkdirp(basename)
 
       await fs.writeFile(filePath, data.body, 'binary')
-      console.log(`downloaded ${zoom}/${x}/${y}. maxX: ${bounds.right}, maxY: ${bounds.bottom}`)
+      console.log('done')
     } catch (e) {
       console.log(e, filePath)
     }
@@ -54,14 +56,11 @@ export const downloadTiles = async zoom => {
   let subdomainId = 0
   let subdomains = ['a', 'b', 'c']
 
-  const filePromises = []
-
   for (let x = bounds.left; x <= bounds.right; x++) {
     for (let y = bounds.top; y <= bounds.bottom; y++) {
       const subdomain = subdomains[subdomainId]
 
-      const prom = writeFile({ x, y, zoom, subdomain, bounds })
-      filePromises.push(prom)
+      await writeFile({ x, y, zoom, subdomain, bounds })
 
       subdomainId += 1
       if (subdomainId > 2) {
@@ -69,8 +68,6 @@ export const downloadTiles = async zoom => {
       }
     }
   }
-
-  await Promise.all(filePromises)
 
   return tiles
 }
