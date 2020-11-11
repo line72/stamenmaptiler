@@ -1,8 +1,8 @@
 export const bounds = {
-  left: 48.35,
-  right: 48.05,
-  top: 16.2,
-  bottom: 16.6,
+  left: 48.5,
+  right: 47.9,
+  top: 16,
+  bottom: 16.8,
 }
 
 export const zoom = {
