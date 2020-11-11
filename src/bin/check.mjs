@@ -11,7 +11,7 @@ const main = async () => {
   const brokenFiles = []
 
   for (let i = config.zoom.min; i <= config.zoom.max; i++) {
-    const dirs = await fs.getDirectories(`./images/${i}`)
+    const dirs = await fs.getDirectories(`./docs/${i}`)
 
     await Promise.all(
       dirs.map(async dir => {
