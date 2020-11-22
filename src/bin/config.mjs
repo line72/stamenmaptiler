@@ -14,8 +14,6 @@ export const bounds = {
   // bottom: 16.8,
 }
 
-
-
 export const zoom = {
   min: 11,
   max: 18,
