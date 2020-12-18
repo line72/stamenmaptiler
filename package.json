@@ -15,8 +15,8 @@
   "scripts": {
     "start": "npm run dev",
     "format": "f -w",
-    "dev": "node_modules/@grundstein/gss/src/bin.mjs --dir ./docs --port 8003 --cors '*'",
-    "build": "node_modules/@grundstein/prepare-static-files/src/bin.mjs --no-webp --no-optimize-images --dirs docs"
+    "dev": "node node_modules/@grundstein/gss/src/bin.mjs --dir ./docs --port 8003 --cors '*'",
+    "build": "node node_modules/@grundstein/prepare-static-files/src/bin.mjs --no-webp --no-optimize-images --dirs docs"
   },
   "bin": {
     "grundstein-magic-server": "src/bin.mjs",
