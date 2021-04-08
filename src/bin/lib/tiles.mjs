@@ -26,15 +26,20 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
       if (!exists) {
         const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
 
-        console.log(`${name}: downloading ${filePath}`)
+        const dirsLeft = max.x - x
+        const imagesInDirLeft = max.y - y + 1
+
+        const totalImagesLeft = ((dirsLeft - 1) * (max.y - min.y)) + imagesInDirLeft
+
+        console.log(`${name}: downloading ${filePath}, images left: ${totalImagesLeft}`)
 
         try {
-          // const data = await httpRequest(url)
+          const data = await httpRequest(url)
           const basename = path.dirname(filePath)
 
-          // await fs.mkdirp(basename)
+          await fs.mkdirp(basename)
 
-          // await fs.writeFile(filePath, data.body, 'binary')
+          await fs.writeFile(filePath, data.body, 'binary')
         } catch (e) {
           console.log(e, filePath)
         }
