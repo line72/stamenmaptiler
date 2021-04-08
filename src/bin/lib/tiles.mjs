@@ -17,50 +17,52 @@ const degreesToTileXY = (lat, lon, zoom) => {
   return { x, y }
 }
 
-const calcTileBounds = (bounds, zoom) => {
-  const min = degreesToTileXY(bounds.left, bounds.top, zoom)
-  const max = degreesToTileXY(bounds.right, bounds.bottom, zoom)
+const calcTileBounds = ({ bounds, zoom }) => {
+  const min = degreesToTileXY(bounds.west, bounds.north, zoom)
+  const max = degreesToTileXY(bounds.east, bounds.south, zoom)
 
-  return { left: min.x - 1, top: min.y - 1, right: max.x + 1, bottom: max.y + 1 }
+  return { west: min.x - 1, north: min.y - 1, east: max.x + 1, south: max.y + 1 }
 }
 
-const writeFile = async ({ x, y, zoom, subdomain, bounds }) => {
+const writeFile = async ({ x, y, zoom, country, name, region, subdomain, bounds }) => {
   const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
-  const filePath = path.join(config.imageDir, `${zoom}`, `${x}`, `${y}.png`)
+  const filePath = path.join(config.imageDir, region, country, name, `${zoom}`, `${x}`, `${y}.png`)
 
   const b = JSON.stringify(bounds)
 
   const exists = await fs.exists(filePath)
   if (!exists) {
     try {
-      console.log('downloading', `/${zoom}/${x}/${y}.png bounds: ${b}`)
+      // console.log(`downloading ${name} /${zoom}/${x}/${y}.png bounds: ${b}`)
 
-      const data = await httpRequest(url)
-      const basename = path.dirname(filePath)
+      // const data = await httpRequest(url)
+      // const basename = path.dirname(filePath)
 
-      await fs.mkdirp(basename)
+      // await fs.mkdirp(basename)
 
-      await fs.writeFile(filePath, data.body, 'binary')
-      console.log('done')
+      // await fs.writeFile(filePath, data.body, 'binary')
     } catch (e) {
       console.log(e, filePath)
     }
+  } else {
+    console.log('exists', filePath)
   }
 }
 
-export const downloadTiles = async zoom => {
-  const bounds = calcTileBounds(config.bounds, zoom)
+export const downloadTiles = async args => {
+  const bounds = calcTileBounds(args)
+  const { zoom, country, name, region } = args
 
   const tiles = []
 
   let subdomainId = 0
   let subdomains = ['a', 'b', 'c']
 
-  for (let x = bounds.left; x <= bounds.right; x++) {
-    for (let y = bounds.top; y <= bounds.bottom; y++) {
+  for (let x = bounds.west; x <= bounds.east; x++) {
+    for (let y = bounds.north; y <= bounds.south; y++) {
       const subdomain = subdomains[subdomainId]
 
-      await writeFile({ x, y, zoom, subdomain, bounds })
+      await writeFile({ x, y, zoom, country, name, region, subdomain, bounds })
 
       subdomainId += 1
       if (subdomainId > 2) {
