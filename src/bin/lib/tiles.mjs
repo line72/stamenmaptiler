@@ -7,36 +7,51 @@ import { httpRequest } from './httpRequest.mjs'
 
 const degreesToRadians = degrees => (degrees * Math.PI) / 180
 
-const degreesToTileXY = (lat, lon, zoom) => {
+const degreesToTileXY = (lat, lng, zoom) => {
   const latRadian = degreesToRadians(lat)
   const n = 2 ** zoom
-  const x = Math.round(((lon + 180) / 360) * n)
+  const x = Math.round(((lng + 180) / 360) * n)
 
   const y = Math.round(((1.0 - Math.asinh(Math.tan(latRadian)) / Math.PI) / 2.0) * n)
 
   return { x, y }
 }
 
-const calcTileBounds = ({ bounds, zoom }) => {
-  const min = degreesToTileXY(bounds.west, bounds.north, zoom)
-  const max = degreesToTileXY(bounds.east, bounds.south, zoom)
+const getBigger = (a, b) => a > b ? a : b
+const getSmaller = (a, b) => a < b ? a : b
 
-  return { west: min.x - 1, north: min.y - 1, east: max.x + 1, south: max.y + 1 }
+const calcTileBounds = ({ lat, lng, zoom }) => {
+  const latMax = getBigger(lat.max, lat.min)
+  const latMin = getSmaller(lat.max, lat.min)
+  const lngMax = getBigger(lng.max, lng.min)
+  const lngMin = getSmaller(lng.max, lng.min)
+
+  const min = degreesToTileXY(latMax, lngMin, zoom)
+  const max = degreesToTileXY(latMin, lngMax, zoom)
+
+  return {
+    min: {
+      x: min.x - 1,
+      y: min.y - 1,
+    },
+    max: {
+      x: max.x + 1,
+      y: max.y + 1,
+    }
+  }
 }
 
-const writeFile = async ({ x, y, zoom, country, name, slug, region, subdomain, bounds }) => {
+const writeFile = async ({ x, y, zoom, country, name, slug, region, subdomain }) => {
   const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
   const filePath = path.join(config.imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
-
-  const b = JSON.stringify(bounds)
 
   const exists = await fs.exists(filePath)
   if (!exists) {
     try {
-      console.log(`${name}: downloading ${filePath} bounds: ${b}`)
+      console.log(`${name}: downloading ${filePath}`)
 
       // const data = await httpRequest(url)
-      // const basename = path.dirname(filePath)
+      const basename = path.dirname(filePath)
 
       // await fs.mkdirp(basename)
 
@@ -44,23 +59,25 @@ const writeFile = async ({ x, y, zoom, country, name, slug, region, subdomain, b
     } catch (e) {
       console.log(e, filePath)
     }
+  } else {
+    console.log('exists', filePath)
   }
 }
 
-export const downloadTiles = async args => {
-  const bounds = calcTileBounds(args)
-  const { zoom, name, country, slug, region } = args
-
-  const tiles = []
+export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, region }) => {
+  const { min, max } = calcTileBounds({ lat, lng, zoom })
 
   let subdomainId = 0
   let subdomains = ['a', 'b', 'c']
 
-  for (let x = bounds.west; x <= bounds.east; x++) {
-    for (let y = bounds.north; y <= bounds.south; y++) {
+  console.log({ country, name, slug, lat, lng, min, max })
+
+  for (let x = min.x; x <= max.x; x++) {
+    for (let y = min.y; y <= max.y; y++) {
       const subdomain = subdomains[subdomainId]
 
-      await writeFile({ x, y, zoom, country, name, slug, region, subdomain, bounds })
+
+      await writeFile({ x, y, zoom, country, name, slug, region, subdomain })
 
       subdomainId += 1
       if (subdomainId > 2) {
@@ -68,6 +85,4 @@ export const downloadTiles = async args => {
       }
     }
   }
-
-  return tiles
 }
