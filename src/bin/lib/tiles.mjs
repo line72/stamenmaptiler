@@ -24,16 +24,16 @@ const calcTileBounds = ({ bounds, zoom }) => {
   return { west: min.x - 1, north: min.y - 1, east: max.x + 1, south: max.y + 1 }
 }
 
-const writeFile = async ({ x, y, zoom, country, name, region, subdomain, bounds }) => {
+const writeFile = async ({ x, y, zoom, country, name, slug, region, subdomain, bounds }) => {
   const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
-  const filePath = path.join(config.imageDir, region, country, name, `${zoom}`, `${x}`, `${y}.png`)
+  const filePath = path.join(config.imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
 
   const b = JSON.stringify(bounds)
 
   const exists = await fs.exists(filePath)
   if (!exists) {
     try {
-      // console.log(`downloading ${name} /${zoom}/${x}/${y}.png bounds: ${b}`)
+      console.log(`${name}: downloading ${filePath} bounds: ${b}`)
 
       // const data = await httpRequest(url)
       // const basename = path.dirname(filePath)
@@ -44,14 +44,12 @@ const writeFile = async ({ x, y, zoom, country, name, region, subdomain, bounds 
     } catch (e) {
       console.log(e, filePath)
     }
-  } else {
-    console.log('exists', filePath)
   }
 }
 
 export const downloadTiles = async args => {
   const bounds = calcTileBounds(args)
-  const { zoom, country, name, region } = args
+  const { zoom, name, country, slug, region } = args
 
   const tiles = []
 
@@ -62,7 +60,7 @@ export const downloadTiles = async args => {
     for (let y = bounds.north; y <= bounds.south; y++) {
       const subdomain = subdomains[subdomainId]
 
-      await writeFile({ x, y, zoom, country, name, region, subdomain, bounds })
+      await writeFile({ x, y, zoom, country, name, slug, region, subdomain, bounds })
 
       subdomainId += 1
       if (subdomainId > 2) {
