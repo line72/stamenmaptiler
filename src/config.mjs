@@ -23,12 +23,12 @@ export const chemnitz = {
   country: 'de',
   region: 'eu',
   lat: {
-    min: 50.75,
-    max: 50.9,
+    min: 50.6,
+    max: 51,
   },
   lng: {
-    min: 12.77,
-    max: 13.06,
+    min: 12.5,
+    max: 13.25,
   },
   zoom: {
     min: 11,
