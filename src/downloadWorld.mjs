@@ -9,8 +9,8 @@ const subdomains = ['a', 'b', 'c']
 
 const downloadLayer = async ({ num, zoom }) => {
 
-  for (let i = 0; i < num; i++) {
-    for (let j = 0; j < num; j++) {
+  for (let i = 0; i <= num; i++) {
+    for (let j = 0; j <= num; j++) {
       const filePath = path.join(process.cwd(), 'docs', 'world', `${zoom}`, `${i}`, `${j}.png`)
 
       const exists = await fs.exists(filePath)
@@ -43,11 +43,15 @@ const downloadLayer = async ({ num, zoom }) => {
 const run = async () => {
   const layers = [
     {
-      num: 27,
+      num: 15,
+      zoom: 4,
+    },
+    {
+      num: 26,
       zoom: 5,
     },
     {
-      num: 64,
+      num: 63,
       zoom: 6,
     },
   ]
