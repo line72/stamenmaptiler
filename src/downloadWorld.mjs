@@ -7,18 +7,17 @@ import { httpRequest } from './lib/httpRequest.mjs'
 let subdomainId = 0
 const subdomains = ['a', 'b', 'c']
 
-const run = async () => {
+const downloadLayer = async ({ num, zoom }) => {
 
-  for (let i = 0; i < 64; i++) {
-    for (let j = 0; j < 64; j++) {
-
-      const filePath = path.join(process.cwd(), 'docs', 'world', '6', `${i}`, `${j}.png`)
+  for (let i = 0; i < num; i++) {
+    for (let j = 0; j < num; j++) {
+      const filePath = path.join(process.cwd(), 'docs', 'world', `${zoom}`, `${i}`, `${j}.png`)
 
       const exists = await fs.exists(filePath)
       if (!exists) {
         const subdomain = subdomains[subdomainId]
 
-        const url = `http://${subdomain}.tile.stamen.com/toner/6/${i}/${j}.png`
+        const url = `http://${subdomain}.tile.stamen.com/toner/${zoom}/${i}/${j}.png`
 
         try {
           const data = await httpRequest(url)
@@ -39,6 +38,21 @@ const run = async () => {
       }
     }
   }
+}
+
+const run = async () => {
+  const layers = [
+    {
+      num: 27,
+      zoom: 5,
+    },
+    {
+      num: 64,
+      zoom: 6,
+    },
+  ]
+
+  layers.forEach(downloadLayer)
 }
 
 run()
