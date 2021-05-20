@@ -54,6 +54,10 @@ const run = async () => {
       num: 63,
       zoom: 6,
     },
+    {
+      num: 127,
+      zoom: 7,
+    },
   ]
 
   layers.forEach(downloadLayer)
