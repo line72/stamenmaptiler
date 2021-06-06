@@ -29,9 +29,7 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
         const dirsLeft = max.x - x
         const imagesInDirLeft = max.y - y + 1
 
-        const totalImagesLeft = ((dirsLeft - 1) * (max.y - min.y)) + imagesInDirLeft
-
-        console.log(`${name}: downloading ${filePath}, images left: ${totalImagesLeft}`)
+        console.log(`${name}: downloading ${filePath}, dirs left: ${dirsLeft} images in dir: ${imagesInDirLeft}`)
 
         try {
           const data = await httpRequest(url)
