@@ -42,12 +42,12 @@ export const dresden = {
   country: 'de',
   region: 'eu',
   lat: {
-    min: 50.9,
-    max: 51.17,
+    min: 50.8,
+    max: 51.2,
   },
   lng: {
-    min: 13.5,
-    max: 13.87,
+    min: 13.48,
+    max: 13.88,
   },
   zoom: {
     min: 11,
