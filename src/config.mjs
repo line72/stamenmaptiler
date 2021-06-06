@@ -36,6 +36,25 @@ export const chemnitz = {
   },
 }
 
+export const dresden = {
+  name: 'Dresden',
+  slug: 'dresden',
+  country: 'de',
+  region: 'eu',
+  lat: {
+    min: 50.9,
+    max: 51.17,
+  },
+  lng: {
+    min: 13.5,
+    max: 13.87,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const de = {
   slug: 'de',
   name: 'Germany',
@@ -43,6 +62,7 @@ export const de = {
   zoom: {},
   cities: [
     chemnitz,
+    dresden,
   ],
 }
 
