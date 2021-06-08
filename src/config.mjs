@@ -17,6 +17,25 @@ export const vienna = {
   },
 }
 
+export const stpoelten = {
+  name: 'St. Pölten',
+  slug: 'stpoelten',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 48.18,
+    max: 48.25,
+  },
+  lng: {
+    min: 15.4,
+    max: 15.8,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const chemnitz = {
   name: 'Chemnitz',
   slug: 'chemnitz',
@@ -73,6 +92,7 @@ export const at = {
   zoom: {},
   cities: [
     vienna,
+    stpoelten,
   ],
 }
 
