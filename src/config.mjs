@@ -27,7 +27,7 @@ export const stpoelten = {
     max: 48.25,
   },
   lng: {
-    min: 15.4,
+    min: 15.5,
     max: 15.8,
   },
   zoom: {
@@ -74,6 +74,25 @@ export const dresden = {
   },
 }
 
+export const toronto = {
+  name: 'Toronto',
+  slug: 'toronto',
+  country: 'ca',
+  region: 'na',
+  lat: {
+    min: 43.5782,
+    max: 43.859,
+  },
+  lng: {
+    max: -79.1341,
+    min: -79.5923,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const de = {
   slug: 'de',
   name: 'Germany',
@@ -96,12 +115,24 @@ export const at = {
   ],
 }
 
+export const ca = {
+  slug: 'ca',
+  name: 'Canada',
+  bounds: {},
+  zoom: {},
+  cities: [
+    toronto,
+  ],
+}
+
 export const na = {
   name: 'North America',
   slug: 'na',
   bounds: {},
   zoom: {},
-  countries: [],
+  countries: [
+    ca,
+  ],
 }
 
 export const eu = {
