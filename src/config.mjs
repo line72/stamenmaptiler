@@ -56,6 +56,25 @@ export const linz = {
   },
 }
 
+export const melk = {
+  name: 'Melk',
+  slug: 'melk',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 48.17,
+    max: 48.24,
+  },
+  lng: {
+    min: 15.27,
+    max: 15.38,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const chemnitz = {
   name: 'Chemnitz',
   slug: 'chemnitz',
@@ -94,6 +113,25 @@ export const dresden = {
   },
 }
 
+export const gelsenkirchen = {
+  name: 'Gelsenkirchen',
+  slug: 'gelsenkirchen',
+  country: 'de',
+  region: 'eu',
+  lat: {
+    min: 51.48,
+    max: 51.58,
+  },
+  lng: {
+    min: 7,
+    max: 7.15,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const toronto = {
   name: 'Toronto',
   slug: 'toronto',
@@ -113,6 +151,35 @@ export const toronto = {
   },
 }
 
+export const basel = {
+  name: 'Basel',
+  slug: 'basel',
+  country: 'ch',
+  region: 'eu',
+  lat: {
+    min: 47.53,
+    max: 47.58,
+  },
+  lng: {
+    min: 7.54,
+    max: 7.56,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
+export const ch = {
+  slug: 'ch',
+  name: 'Switzerland',
+  bounds: {},
+  zoom: {},
+  cities: [
+    basel,
+  ],
+}
+
 export const de = {
   slug: 'de',
   name: 'Germany',
@@ -121,6 +188,7 @@ export const de = {
   cities: [
     chemnitz,
     dresden,
+    gelsenkirchen,
   ],
 }
 
@@ -130,9 +198,10 @@ export const at = {
   bounds: {},
   zoom: {},
   cities: [
-    vienna,
-    stpoelten,
     linz,
+    melk,
+    stpoelten,
+    vienna,
   ],
 }
 
@@ -175,6 +244,7 @@ export const eu = {
 
   countries: [
     at,
+    ch,
     de,
   ],
 }
@@ -197,8 +267,6 @@ export const world = {
   ],
 }
 
-export const url = 'tile.stamen.com/toner'
-
-export const protocol = 'http'
+export const getDomain = subdomain => `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`
 
 export const imageDir = 'docs'

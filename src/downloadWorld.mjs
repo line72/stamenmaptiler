@@ -3,9 +3,10 @@ import fs from '@magic/fs'
 
 import { httpRequest } from './lib/httpRequest.mjs'
 
+import { getDomain } from './config.js'
 
 let subdomainId = 0
-const subdomains = ['a', 'b', 'c']
+const subdomains = ['a', 'b', 'c', 'd']
 
 const downloadLayer = async ({ num, zoom }) => {
 
@@ -17,7 +18,7 @@ const downloadLayer = async ({ num, zoom }) => {
       if (!exists) {
         const subdomain = subdomains[subdomainId]
 
-        const url = `http://${subdomain}.tile.stamen.com/toner/${zoom}/${i}/${j}.png`
+        const url = `${getDomain(subdomain)}/${zoom}/${i}/${j}.png`
 
         try {
           const data = await httpRequest(url)
@@ -32,7 +33,7 @@ const downloadLayer = async ({ num, zoom }) => {
         }
 
         subdomainId += 1
-        if (subdomainId > 2) {
+        if (subdomainId >= subdomains.length) {
           subdomainId = 0
         }
       }

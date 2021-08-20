@@ -2,7 +2,7 @@ import path from 'path'
 
 import fs from '@magic/fs'
 
-import * as config from '../config.mjs'
+import { imageDir, getDomain } from '../config.mjs'
 import { httpRequest } from './httpRequest.mjs'
 
 import { calcTileBounds } from './calcTileBounds.mjs'
@@ -20,11 +20,11 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
     for (let y = min.y; y <= max.y; y++) {
       const subdomain = subdomains[subdomainId]
 
-      const filePath = path.join(config.imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
+      const filePath = path.join(imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
 
       const exists = await fs.exists(filePath)
       if (!exists) {
-        const url = `${config.protocol}://${subdomain}.${config.url}/${zoom}/${x}/${y}.png`
+        const url = `${getDomain(subdomain)}/${zoom}/${x}/${y}.png`
 
         const dirsLeft = max.x - x
         const imagesInDirLeft = max.y - y + 1
@@ -32,6 +32,7 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
         console.log(`${name}: downloading ${filePath}, dirs left: ${dirsLeft} dirs max: ${max.x} images in dir: ${imagesInDirLeft}`)
 
         try {
+          console.log('requesting', url)
           const data = await httpRequest(url)
           const basename = path.dirname(filePath)
 
