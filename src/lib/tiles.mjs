@@ -29,10 +29,9 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
         const dirsLeft = max.x - x
         const imagesInDirLeft = max.y - y + 1
 
-        console.log(`${name}: downloading ${filePath}, dirs left: ${dirsLeft} dirs max: ${max.x} images in dir: ${imagesInDirLeft}`)
+        console.log(`${name}: downloading ${filePath}, dirs left: ${dirsLeft}, images in dir: ${imagesInDirLeft}`)
 
         try {
-          console.log('requesting', url)
           const data = await httpRequest(url)
           const basename = path.dirname(filePath)
 
