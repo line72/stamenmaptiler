@@ -157,12 +157,12 @@ export const basel = {
   country: 'ch',
   region: 'eu',
   lat: {
-    min: 47.53,
-    max: 47.58,
+    min: 47.52,
+    max: 47.59,
   },
   lng: {
-    min: 7.54,
-    max: 7.56,
+    min: 7.53,
+    max: 7.6,
   },
   zoom: {
     min: 11,
