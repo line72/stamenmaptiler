@@ -15,7 +15,6 @@ export const calcTileBounds = ({ lat, lng, zoom }) => {
     zoomMod = 0.01
   }
 
-
   const latMax = Math.max(lat.max, lat.min) + zoomMod
   const latMin = Math.min(lat.max, lat.min) - zoomMod
   const lngMax = Math.max(lng.max, lng.min) + zoomMod
@@ -32,6 +31,6 @@ export const calcTileBounds = ({ lat, lng, zoom }) => {
     max: {
       x: max.x + 1,
       y: max.y + 1,
-    }
+    },
   }
 }

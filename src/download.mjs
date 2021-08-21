@@ -17,17 +17,23 @@ const downloadZoomLayer = async ({ lat, lng, zoom, name, slug, region, country }
 const main = async () => {
   const { regions } = world
 
-  await Promise.all(regions.map(async region => {
-    const { countries = [], slug: regionCode } = region
+  await Promise.all(
+    regions.map(async region => {
+      const { countries = [], slug: regionCode } = region
 
-    await Promise.all(countries.map(async country => {
-      const { slug: countryCode, cities = [] } = country
+      await Promise.all(
+        countries.map(async country => {
+          const { slug: countryCode, cities = [] } = country
 
-      await Promise.all(cities.map(async city => {
-        await downloadZoomLayer({ ...city, region: regionCode, country: countryCode })
-      }))
-    }))
-  }))
+          await Promise.all(
+            cities.map(async city => {
+              await downloadZoomLayer({ ...city, region: regionCode, country: countryCode })
+            }),
+          )
+        }),
+      )
+    }),
+  )
 }
 
 main()

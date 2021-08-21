@@ -9,7 +9,6 @@ let subdomainId = 0
 const subdomains = ['a', 'b', 'c', 'd']
 
 const downloadLayer = async ({ num, zoom }) => {
-
   for (let i = 0; i <= num; i++) {
     for (let j = 0; j <= num; j++) {
       const filePath = path.join(process.cwd(), 'docs', 'world', `${zoom}`, `${i}`, `${j}.png`)

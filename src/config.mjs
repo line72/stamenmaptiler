@@ -48,7 +48,7 @@ export const linz = {
   },
   lng: {
     min: 14.224,
-    max: 14.370,
+    max: 14.37,
   },
   zoom: {
     min: 11,
@@ -175,9 +175,7 @@ export const ch = {
   name: 'Switzerland',
   bounds: {},
   zoom: {},
-  cities: [
-    basel,
-  ],
+  cities: [basel],
 }
 
 export const de = {
@@ -185,11 +183,7 @@ export const de = {
   name: 'Germany',
   bounds: {},
   zoom: {},
-  cities: [
-    chemnitz,
-    dresden,
-    gelsenkirchen,
-  ],
+  cities: [chemnitz, dresden, gelsenkirchen],
 }
 
 export const at = {
@@ -197,12 +191,7 @@ export const at = {
   name: 'Austria',
   bounds: {},
   zoom: {},
-  cities: [
-    linz,
-    melk,
-    stpoelten,
-    vienna,
-  ],
+  cities: [linz, melk, stpoelten, vienna],
 }
 
 export const ca = {
@@ -210,9 +199,7 @@ export const ca = {
   name: 'Canada',
   bounds: {},
   zoom: {},
-  cities: [
-    toronto,
-  ],
+  cities: [toronto],
 }
 
 export const na = {
@@ -220,9 +207,7 @@ export const na = {
   slug: 'na',
   bounds: {},
   zoom: {},
-  countries: [
-    ca,
-  ],
+  countries: [ca],
 }
 
 export const eu = {
@@ -242,11 +227,7 @@ export const eu = {
   //   max: 10,
   // },
 
-  countries: [
-    at,
-    ch,
-    de,
-  ],
+  countries: [at, ch, de],
 }
 
 export const world = {
@@ -261,10 +242,7 @@ export const world = {
   //   max: 5,
   // },
 
-  regions: [
-    eu,
-    na,
-  ],
+  regions: [eu, na],
 }
 
 export const getDomain = subdomain => `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`

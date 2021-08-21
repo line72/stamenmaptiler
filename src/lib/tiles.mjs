@@ -29,7 +29,9 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
         const dirsLeft = max.x - x
         const imagesInDirLeft = max.y - y + 1
 
-        console.log(`${name}: downloading ${filePath}, dirs left: ${dirsLeft}, images in dir: ${imagesInDirLeft}`)
+        console.log(
+          `${name}: downloading ${filePath}, dirs left: ${dirsLeft}, images in dir: ${imagesInDirLeft}`,
+        )
 
         try {
           const data = await httpRequest(url)
@@ -54,5 +56,7 @@ export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, regio
     }
   }
 
-  console.log(`${name}, zoom: ${zoom}: Downloaded ${newFiles} new tiles. Ignored ${existingFiles} existing files`)
+  console.log(
+    `${name}, zoom: ${zoom}: Downloaded ${newFiles} new tiles. Ignored ${existingFiles} existing files`,
+  )
 }
