@@ -119,12 +119,12 @@ export const gelsenkirchen = {
   country: 'de',
   region: 'eu',
   lat: {
-    min: 51.48,
+    min: 51.46,
     max: 51.58,
   },
   lng: {
     min: 7,
-    max: 7.15,
+    max: 7.18,
   },
   zoom: {
     min: 11,
