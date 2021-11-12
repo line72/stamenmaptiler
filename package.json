@@ -29,17 +29,17 @@
     "url": "https://github.com/artificialmuseum/map/issues"
   },
   "devDependencies": {
-    "@grundstein/commons": "0.0.1",
-    "@grundstein/gss": "0.0.2",
-    "@grundstein/prepare-static-files": "0.0.1",
+    "@grundstein/commons": "0.0.3",
+    "@grundstein/gss": "0.0.4",
+    "@grundstein/prepare-static-files": "0.0.2",
     "@magic/cli": "0.0.34",
-    "@magic/format": "0.0.29",
-    "@magic/fs": "0.0.15",
-    "@magic/test": "0.1.74",
+    "@magic/format": "0.0.31",
+    "@magic/fs": "0.0.17",
+    "@magic/test": "0.1.76",
     "image-type": "4.1.0",
     "mmmagic": "0.5.3",
-    "optipng-bin": "7.0.0",
-    "tinify": "1.6.0-beta.2"
+    "optipng-bin": "^8.1.0",
+    "tinify": "1.6.1"
   },
   "keywords": [
     "grundstein",
