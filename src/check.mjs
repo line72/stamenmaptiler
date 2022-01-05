@@ -22,7 +22,7 @@ const main = async () => {
             file =>
               new Promise(res =>
                 magic.detectFile(file, (err, result) => {
-                  if (err || !result.includes('PNG')) {
+                  if (err || (!result.includes('PNG') && !result.includes('JPG') && !result.includes('WEBP'))) {
                     brokenFiles.push(file)
                   }
                   res()
