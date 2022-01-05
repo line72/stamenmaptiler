@@ -245,6 +245,17 @@ export const world = {
   regions: [eu, na],
 }
 
-export const getDomain = subdomain => `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`
+export const getDomain = (planet, subdomainId) => {
+  if (planet === 'moon') {
+    return `http://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-moon-basemap-v0-1/all/`
+  } else if (planet === 'mars') {
+    return `http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global`
+  }
+
+  const subdomains = ['a', 'b', 'c']
+  const subdomain = subdomains[subdomainId]
+
+  return `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`
+}
 
 export const imageDir = 'docs'

@@ -7,24 +7,21 @@ import { httpRequest } from './httpRequest.mjs'
 
 import { calcTileBounds } from './calcTileBounds.mjs'
 
-export const downloadTiles = async ({ lat, lng, zoom, name, country, slug, region }) => {
+export const downloadTiles = async ({ planet = 'earth', lat, lng, zoom, name, country, slug, region }) => {
   const { min, max } = calcTileBounds({ lat, lng, zoom })
 
   let subdomainId = 0
-  let subdomains = ['a', 'b', 'c']
 
   let newFiles = 0
   let existingFiles = 0
 
   for (let x = min.x; x <= max.x; x++) {
     for (let y = min.y; y <= max.y; y++) {
-      const subdomain = subdomains[subdomainId]
-
       const filePath = path.join(imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
 
       const exists = await fs.exists(filePath)
       if (!exists) {
-        const url = `${getDomain(subdomain)}/${zoom}/${x}/${y}.png`
+        const url = `${getDomain(planet, subdomainId)}/${zoom}/${x}/${y}.png`
 
         const dirsLeft = max.x - x
         const imagesInDirLeft = max.y - y + 1
