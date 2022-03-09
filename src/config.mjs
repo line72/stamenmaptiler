@@ -17,6 +17,25 @@ export const vienna = {
   },
 }
 
+export const bregenz = {
+  name: 'Bregenz',
+  slug: 'bregenz',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 47.47,
+    max: 47.52,
+  },
+  lng: {
+    min: 9.685,
+    max: 9.766,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 export const stpoelten = {
   name: 'St. Pölten',
   slug: 'stpoelten',
@@ -101,7 +120,7 @@ export const dresden = {
   region: 'eu',
   lat: {
     min: 50.8,
-    max: 51.2,
+    max: 51.3,
   },
   lng: {
     min: 13.48,
@@ -191,7 +210,7 @@ export const at = {
   name: 'Austria',
   bounds: {},
   zoom: {},
-  cities: [linz, melk, stpoelten, vienna],
+  cities: [bregenz, linz, melk, stpoelten, vienna],
 }
 
 export const ca = {

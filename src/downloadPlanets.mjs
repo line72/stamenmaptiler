@@ -14,7 +14,7 @@ const downloadLayer = async ({ planet, num, zoom }) => {
 
   for (let i = 0; i <= num; i++) {
     for (let j = 0; j <= num; j++) {
-      const image = `${zoom}/${i}/${j}.png`
+      const image = `${zoom}/${i}/${j}.jpg`
 
       const filePath = path.join(process.cwd(), 'docs', planet, image)
       const exists = await fs.exists(filePath)
@@ -60,6 +60,11 @@ const downloadLayer = async ({ planet, num, zoom }) => {
 
 const run = async () => {
   const layers = [
+    // {
+    //   num: 15,
+    //   zoom: 3,
+    //   planet: 'moon',
+    // },
     {
       num: 15,
       zoom: 4,
