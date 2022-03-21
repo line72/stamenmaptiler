@@ -7,13 +7,23 @@ import { httpRequest } from './httpRequest.mjs'
 
 import { calcTileBounds } from './calcTileBounds.mjs'
 
-export const downloadTiles = async ({ planet = 'earth', lat, lng, zoom, name, country, slug, region }) => {
+export const downloadTiles = async ({
+  planet = 'earth',
+  lat,
+  lng,
+  zoom,
+  name,
+  country,
+  slug,
+  region,
+}) => {
   const { min, max } = calcTileBounds({ lat, lng, zoom })
 
   let subdomainId = 0
 
   let newFiles = 0
   let existingFiles = 0
+  let capturedFiles = []
 
   for (let x = min.x; x <= max.x; x++) {
     for (let y = min.y; y <= max.y; y++) {
@@ -37,6 +47,14 @@ export const downloadTiles = async ({ planet = 'earth', lat, lng, zoom, name, co
           await fs.mkdirp(basename)
 
           await fs.writeFile(filePath, data.body, 'binary')
+
+          await new Promise(r => {
+            const ran = Math.random() * 50 + 200
+
+            setTimeout(() => {
+              r()
+            }, ran)
+          })
         } catch (e) {
           console.log(e, filePath)
         }
