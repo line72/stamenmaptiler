@@ -27,36 +27,33 @@ const downloadLayer = async ({ planet, num, zoom }) => {
   }
 
   for (let i = 0; i < images.length; i += 4) {
-    const imgs = [
-      images[i],
-      images[i + 1],
-      images[i + 2],
-      images[i + 3],
-    ]
+    const imgs = [images[i], images[i + 1], images[i + 2], images[i + 3]]
 
-    await Promise.all(imgs.map(async image => {
-      if (!image) {
-        return
-      }
+    await Promise.all(
+      imgs.map(async image => {
+        if (!image) {
+          return
+        }
 
-      const filePath = path.join(process.cwd(), 'docs', planet, image)
-      log.info('downloading', image)
+        const filePath = path.join(process.cwd(), 'docs', planet, image)
+        log.info('downloading', image)
 
-      const url = `${hostname}/${image}`
+        const url = `${hostname}/${image}`
 
-      try {
-        const data = await httpRequest(url)
+        try {
+          const data = await httpRequest(url)
 
-        const dir = path.dirname(filePath)
+          const dir = path.dirname(filePath)
 
-        await fs.mkdirp(dir)
+          await fs.mkdirp(dir)
 
-        await fs.writeFile(filePath, data.body, 'binary')
-        log.success('wrote file', filePath)
-      } catch (e) {
-        log.error('E_DOWNLOAD_IMAGE', e, filePath)
-      }
-    }))
+          await fs.writeFile(filePath, data.body, 'binary')
+          log.success('wrote file', filePath)
+        } catch (e) {
+          log.error('E_DOWNLOAD_IMAGE', e, filePath)
+        }
+      }),
+    )
   }
 }
 
