@@ -166,7 +166,7 @@ const rapottenstein = {
   },
   zoom: {
     min: 11,
-    max: 18,
+    max: 16,
   },
 }
 
