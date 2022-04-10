@@ -23,13 +23,20 @@ export const downloadTiles = async ({
 
   let newFiles = 0
   let existingFiles = 0
-  let capturedFiles = []
 
   for (let x = min.x; x <= max.x; x++) {
     for (let y = min.y; y <= max.y; y++) {
       const filePath = path.join(imageDir, region, country, slug, `${zoom}`, `${x}`, `${y}.png`)
 
-      const exists = await fs.exists(filePath)
+      let exists = await fs.exists(filePath)
+
+      if (exists) {
+        const stat = await fs.stat(filePath)
+        if (stat.size < 100) {
+          exists = false
+        }
+      }
+
       if (!exists) {
         const url = `${getDomain(planet, subdomainId)}/${zoom}/${x}/${y}.png`
 
