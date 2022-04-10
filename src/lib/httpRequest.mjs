@@ -13,6 +13,14 @@ export const httpRequest = url =>
       res.on('end', () => resolve({ ...res, body }))
     })
 
+    req.on('socket', function (socket) {
+      socket.setTimeout(2000)
+      socket.on('timeout', function () {
+        req.destroy()
+        console.warn('timeout occured')
+      });
+    })
+
     req.on('error', reject)
     req.end()
   })
