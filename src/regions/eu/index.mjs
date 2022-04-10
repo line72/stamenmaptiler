@@ -1,7 +1,7 @@
 import { at } from './at.mjs'
 import { ch } from './ch.mjs'
 import { de } from './de.mjs'
-// import { ua } from './ua.mjs'
+import { ua } from './ua.mjs'
 
 export const eu = {
   name: 'Europe',
@@ -20,5 +20,5 @@ export const eu = {
   //   max: 10,
   // },
 
-  countries: [at, ch, de /* ua */],
+  countries: [at, ch, de, ua],
 }
