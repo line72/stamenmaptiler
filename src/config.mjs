@@ -1,5 +1,10 @@
 export { world } from './regions/world.mjs'
 
+export const zoom = {
+  min: 3,
+  max: 18,
+}
+
 export const getDomain = (planet, subdomainId) => {
   if (planet === 'moon') {
     return `http://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-moon-basemap-v0-1/all/`
