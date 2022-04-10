@@ -4,12 +4,12 @@ const chemnitz = {
   country: 'de',
   region: 'eu',
   lat: {
-    min: 50.6,
-    max: 51,
+    min: 50.75,
+    max: 50.9,
   },
   lng: {
-    min: 12.5,
-    max: 13.25,
+    min: 12.8,
+    max: 13.0,
   },
   zoom: {
     min: 11,
@@ -23,13 +23,14 @@ const dresden = {
   country: 'de',
   region: 'eu',
   lat: {
-    min: 50.85,
-    max: 51.26,
+    min: 51,
+    max: 51.15,
   },
   lng: {
-    min: 13.5,
-    max: 13.85,
+    min: 13.6,
+    max: 13.83,
   },
+
   zoom: {
     min: 11,
     max: 18,
@@ -60,5 +61,9 @@ export const de = {
   name: 'Germany',
   bounds: {},
   zoom: {},
-  cities: [chemnitz, dresden, gelsenkirchen],
+  cities: [
+    chemnitz,
+    dresden,
+    gelsenkirchen,
+  ],
 }
