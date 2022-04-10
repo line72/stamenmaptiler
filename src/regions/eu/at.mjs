@@ -109,7 +109,7 @@ const krems = {
   },
   zoom: {
     min: 11,
-    max: 18,
+    max: 16,
   },
 }
 
@@ -128,6 +128,44 @@ export const lindabrunn = {
   },
   zoom: {
     min: 11,
+    max: 17,
+  },
+}
+
+const mistelbach = {
+  name: 'Mistelbach',
+  slug: 'mistelbach',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 48.56,
+    max: 48.577,
+  },
+  lng: {
+    min: 16.556,
+    max: 16.587,
+  },
+  zoom: {
+    min: 11,
+    max: 16,
+  },
+}
+
+const rapottenstein = {
+  name: 'Rapottenstein',
+  slug: 'rapottenstein',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 48.513,
+    max: 48.51,
+  },
+  lng: {
+    min: 15.085,
+    max: 15.0911,
+  },
+  zoom: {
+    min: 11,
     max: 18,
   },
 }
@@ -139,11 +177,13 @@ export const at = {
   zoom: {},
   cities: [
     bregenz,
-    //krems,
-    //lindabrunn,
+    krems,
+    lindabrunn,
     linz,
     melk,
+    mistelbach,
     stpoelten,
     vienna,
+    rapottenstein,
   ],
 }
