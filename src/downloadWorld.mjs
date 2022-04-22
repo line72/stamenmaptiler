@@ -5,10 +5,10 @@ import fs from '@magic/fs'
 
 import { httpRequest } from './lib/httpRequest.mjs'
 
-import { getDomain } from './config.js'
+import { getDomain } from './config.mjs'
 
 let subdomainId = 0
-const subdomains = ['a', 'b', 'c', 'd']
+const subdomains = ['a', 'b', 'c']
 
 const downloadLayer = async ({ num, zoom }) => {
   for (let i = 0; i <= num; i++) {
@@ -28,7 +28,7 @@ const downloadLayer = async ({ num, zoom }) => {
           await fs.mkdirp(basename)
 
           await fs.writeFile(filePath, data.body, 'binary')
-          console.log('wrote file', filePath)
+          console.log('wrote file', filePath, data.body.length)
         } catch (e) {
           console.log(e, filePath)
         }
@@ -44,6 +44,18 @@ const downloadLayer = async ({ num, zoom }) => {
 
 const run = async () => {
   const layers = [
+    {
+      num: 1,
+      zoom: 1,
+    },
+    {
+      num: 3,
+      zoom: 2,
+    },
+    {
+      num: 7,
+      zoom: 3,
+    },
     {
       num: 15,
       zoom: 4,
