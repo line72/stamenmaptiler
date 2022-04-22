@@ -157,16 +157,16 @@ const rapottenstein = {
   country: 'at',
   region: 'eu',
   lat: {
-    min: 48.513,
-    max: 48.51,
+    min: 48.53,
+    max: 48.49,
   },
   lng: {
-    min: 15.085,
-    max: 15.0911,
+    min: 15.07,
+    max: 15.15,
   },
   zoom: {
     min: 11,
-    max: 16,
+    max: 15,
   },
 }
 
