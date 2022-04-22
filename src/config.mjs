@@ -15,7 +15,12 @@ export const getDomain = (planet, subdomainId) => {
   const subdomains = ['a', 'b', 'c']
   const subdomain = subdomains[subdomainId]
 
-  return `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`
+  const local = 'http://localhost:6789/openstreetmap-carto/tile'
+  const remote = `http://stamen-tiles-${subdomain}.a.ssl.fastly.net/toner`
+
+  const tilemill = 'http://127.0.0.1:20008/tile/control-room'
+
+  return remote
 }
 
 export const imageDir = 'docs'
