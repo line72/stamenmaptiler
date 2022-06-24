@@ -56,7 +56,7 @@ export const downloadTiles = async ({
           await fs.writeFile(filePath, data.body, 'binary')
 
           await new Promise(r => {
-            const ran = Math.random() * 50 + 200
+            const ran = Math.random() * 50 + 50
 
             setTimeout(() => {
               r()
