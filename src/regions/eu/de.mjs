@@ -1,3 +1,22 @@
+const berlin = {
+  name: 'Berlin',
+  slug: 'berlin',
+  country: 'de',
+  region: 'eu',
+  lat: {
+    min: 52.38,
+    max: 52.628,
+  },
+  lng: {
+    min: 13.13,
+    max: 13.64,
+  },
+  zoom: {
+    min: 11,
+    max: 18,
+  },
+}
+
 const chemnitz = {
   name: 'Chemnitz',
   slug: 'chemnitz',
@@ -62,6 +81,7 @@ export const de = {
   bounds: {},
   zoom: {},
   cities: [
+    // berlin,
     chemnitz,
     dresden,
     gelsenkirchen,
