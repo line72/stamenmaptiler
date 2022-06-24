@@ -100,16 +100,16 @@ const krems = {
   country: 'at',
   region: 'eu',
   lat: {
-    min: 48.4,
+    min: 48.39,
     max: 48.42,
   },
   lng: {
     min: 15.56,
-    max: 15.66,
+    max: 15.63,
   },
   zoom: {
     min: 11,
-    max: 16,
+    max: 18,
   },
 }
 
