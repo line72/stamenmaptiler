@@ -1,6 +1,7 @@
 import { at } from './at.mjs'
 import { ch } from './ch.mjs'
 import { de } from './de.mjs'
+import { it } from './it.mjs'
 import { ua } from './ua.mjs'
 
 export const eu = {
@@ -20,5 +21,5 @@ export const eu = {
   //   max: 10,
   // },
 
-  countries: [at, ch, de, ua],
+  countries: [at, ch, de, it, ua],
 }

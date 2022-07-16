@@ -177,7 +177,7 @@ export const at = {
   zoom: {},
   cities: [
     bregenz,
-    krems,
+    // krems,
     lindabrunn,
     linz,
     melk,
