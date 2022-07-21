@@ -42,12 +42,12 @@ const kingston = {
   country: 'ca',
   region: 'na',
   lat: {
-    min: 44.21,
+    min: 44.218,
     max: 44.26,
   },
   lng: {
-    max: -76.475,
-    min: -76.54,
+    max: -76.477,
+    min: -76.5376,
   },
   zoom: {
     min: 11,
