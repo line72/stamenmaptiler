@@ -32,7 +32,7 @@ const ottawa = {
   },
   zoom: {
     min: 11,
-    max: 16,
+    max: 15,
   },
 }
 
