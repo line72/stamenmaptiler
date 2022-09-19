@@ -1,3 +1,22 @@
+const hallein = {
+  name: 'Hallein',
+  slug: 'hallein',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 47.67259,
+    max: 47.69768,
+  },
+  lng: {
+    min: 13.07674,
+    max: 13.12114,
+  },
+  zoom: {
+    min: 11,
+    max: 17,
+  }
+}
+
 const vienna = {
   name: 'Vienna',
   slug: 'vienna',
@@ -178,6 +197,7 @@ export const at = {
   cities: [
     bregenz,
     // krems,
+    hallein,
     lindabrunn,
     linz,
     melk,

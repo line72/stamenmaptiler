@@ -24,6 +24,6 @@ export const it = {
   bounds: {},
   zoom: {},
   cities: [
-    schlanders,
+    // schlanders,
   ],
 }
