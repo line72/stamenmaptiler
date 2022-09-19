@@ -17,12 +17,16 @@ const downloadLayer = async ({ num, zoom }) => {
 
       const exists = await fs.exists(filePath)
       if (!exists) {
-        const subdomain = subdomains[subdomainId]
-
-        const url = `${getDomain(subdomain)}/${zoom}/${i}/${j}.png`
+        const url = `${getDomain('earth', subdomainId)}/${zoom}/${i}/${j}.png`
 
         try {
           const data = await httpRequest(url)
+
+          if (data.statusCode !== 200) {
+            console.error('ERROR', filePath)
+            return
+          }
+
           const basename = path.dirname(filePath)
 
           await fs.mkdirp(basename)
@@ -71,6 +75,14 @@ const run = async () => {
     {
       num: 127,
       zoom: 7,
+    },
+    {
+      num: 255,
+      zoom: 8,
+    },
+    {
+      num: 511,
+      zoom: 9,
     },
   ]
 
