@@ -5,11 +5,11 @@ const hallein = {
   region: 'eu',
   lat: {
     min: 47.67259,
-    max: 47.69768,
+    max: 47.687,
   },
   lng: {
-    min: 13.07674,
-    max: 13.12114,
+    min: 13.08,
+    max: 13.12,
   },
   zoom: {
     min: 11,
