@@ -16,6 +16,7 @@ const kyiv = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 export const ua = {
@@ -24,6 +25,6 @@ export const ua = {
   bounds: {},
   zoom: {},
   cities: [
-    //kyiv
+    kyiv
   ],
 }

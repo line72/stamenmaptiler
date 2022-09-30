@@ -15,6 +15,7 @@ const budapest = {
     min: 11,
     max: 17,
   },
+  finished: true,
 }
 
 export const hu = {

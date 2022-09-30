@@ -15,6 +15,7 @@ const basel = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 export const ch = {

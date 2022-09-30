@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import log from '@magic/log'
+
 import { world } from './config.mjs'
 
 import { downloadTiles } from './lib/tiles.mjs'
@@ -27,6 +29,11 @@ const main = async () => {
 
           await Promise.all(
             cities.map(async city => {
+              if (city.finished) {
+                log.success(`${regionCode}/${countryCode}/${city.name}`, 'downloaded already.')
+                return
+              }
+
               await downloadZoomLayer({ ...city, region: regionCode, country: countryCode })
             }),
           )

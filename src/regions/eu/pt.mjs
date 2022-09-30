@@ -15,6 +15,7 @@ const aveiro = {
     min: 11,
     max: 13,
   },
+  finished: true,
 }
 
 export const pt = {

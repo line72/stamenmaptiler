@@ -16,6 +16,7 @@ const schlanders = {
     min: 11,
     max: 16,
   },
+  finished: true,
 }
 
 export const it = {
@@ -24,6 +25,6 @@ export const it = {
   bounds: {},
   zoom: {},
   cities: [
-    // schlanders,
+    schlanders,
   ],
 }

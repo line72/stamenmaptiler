@@ -15,6 +15,7 @@ const berlin = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const chemnitz = {
@@ -34,6 +35,7 @@ const chemnitz = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const dresden = {
@@ -54,6 +56,7 @@ const dresden = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const gelsenkirchen = {
@@ -73,6 +76,7 @@ const gelsenkirchen = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 export const de = {

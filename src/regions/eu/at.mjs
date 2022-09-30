@@ -14,7 +14,8 @@ const hallein = {
   zoom: {
     min: 11,
     max: 17,
-  }
+  },
+  finished: true,
 }
 
 const vienna = {
@@ -34,6 +35,27 @@ const vienna = {
     min: 11,
     max: 18,
   },
+  finished: true,
+}
+
+const buschberg = {
+  name: 'Buschberg',
+  slug: 'buschberg',
+  country: 'at',
+  region: 'eu',
+  lat: {
+    min: 48.546,
+    max: 48.586,
+  },
+  lng: {
+    min: 16.36,
+    max: 16.42,
+  },
+  zoom: {
+    min: 11,
+    max: 17,
+  },
+  // finished: true,
 }
 
 const bregenz = {
@@ -53,6 +75,7 @@ const bregenz = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const stpoelten = {
@@ -72,6 +95,7 @@ const stpoelten = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const linz = {
@@ -92,6 +116,7 @@ const linz = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const melk = {
@@ -111,6 +136,7 @@ const melk = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const krems = {
@@ -130,6 +156,7 @@ const krems = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 export const lindabrunn = {
@@ -149,6 +176,7 @@ export const lindabrunn = {
     min: 11,
     max: 17,
   },
+  finished: true,
 }
 
 const mistelbach = {
@@ -168,6 +196,7 @@ const mistelbach = {
     min: 11,
     max: 16,
   },
+  finished: true,
 }
 
 const rapottenstein = {
@@ -187,6 +216,7 @@ const rapottenstein = {
     min: 11,
     max: 15,
   },
+  finished: true,
 }
 
 export const at = {
@@ -197,7 +227,8 @@ export const at = {
   cities: [
     bregenz,
     // krems,
-    hallein,
+    buschberg,
+    // hallein,
     lindabrunn,
     linz,
     melk,

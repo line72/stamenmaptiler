@@ -15,6 +15,7 @@ const toronto = {
     min: 11,
     max: 18,
   },
+  finished: true,
 }
 
 const ottawa = {
@@ -34,6 +35,7 @@ const ottawa = {
     min: 11,
     max: 15,
   },
+  finished: true,
 }
 
 const kingston = {
@@ -53,6 +55,7 @@ const kingston = {
     min: 11,
     max: 16,
   },
+  finished: true,
 }
 
 export const ca = {
