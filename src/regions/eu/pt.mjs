@@ -13,7 +13,7 @@ const aveiro = {
   },
   zoom: {
     min: 11,
-    max: 13,
+    max: 17,
   },
   finished: true,
 }
