@@ -5,6 +5,7 @@ import { it } from './it.mjs'
 import { ua } from './ua.mjs'
 import { hu } from './hu.mjs'
 import { pt } from './pt.mjs'
+import { si } from './si.mjs'
 
 export const eu = {
   name: 'Europe',
@@ -23,5 +24,5 @@ export const eu = {
   //   max: 10,
   // },
 
-  countries: [at, ch, de, it, ua, hu, pt],
+  countries: [at, ch, de, it, ua, hu, pt, si],
 }
