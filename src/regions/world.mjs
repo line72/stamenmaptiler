@@ -1,5 +1,6 @@
 import { eu } from './eu/index.mjs'
 import { na } from './na/index.mjs'
+import { as } from './as/index.mjs'
 
 export const world = {
   bounds: {
@@ -13,5 +14,5 @@ export const world = {
     max: 9,
   },
 
-  regions: [eu, na],
+  regions: [eu, na, as],
 }
